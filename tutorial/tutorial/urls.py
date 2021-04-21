@@ -21,8 +21,8 @@ Including another URLconf
 #     path('quickstart/', include('quickstart.urls'))
 # ]
 from django.contrib import admin
-from django.urls import path, include, re_path
-from django.conf.urls import url
+from django.urls import path, re_path
+from django.conf.urls import url, include
 from rest_framework import routers
 from quickstart import views
 
@@ -32,7 +32,11 @@ router.register(r'groups', views.GroupViewSet)
 
 urlpatterns = [
    # re_path(r'^', include(router.urls)),
-   # re_path(r'^api_auth/', include('rest_framework.urls', namespace='rest_framework'))
-    path('admin/', admin.site.urls),
+    re_path('admin/', admin.site.urls),
     re_path(r'^', include('snippets.urls')),
 ]
+
+# urlpatterns += [
+#     re_path(r'^api_auth/', include('rest_framework.urls', namespace='rest_framework'))
+# ]
+# 不能是api-auth, 可以任意，但是无法‘-’
