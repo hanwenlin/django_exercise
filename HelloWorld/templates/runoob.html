@@ -1,0 +1,19 @@
+{% load my_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{#{% load my_tags %}#}
+<h1>{{ hello }}</h1>
+<h2>{{ views_list }}</h2>
+{#<h4>{{ views_list.0 }}</h4>#}
+{% for i in views_list %}
+    <P>{{ i }}</P>
+{% endfor %}
+{% my_tag1 11 22 33 %}
+{{ 11|my_filter:22 }}
+</body>
+</html>
